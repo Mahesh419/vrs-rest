@@ -9,44 +9,44 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="vehicle")
+@Table(name = "vehicle")
 public class Vehicle {
-	
+
 	@Id
-	@Column(name="vehicleId")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "vehicleId")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long vehicleId;
-	
-	@Column(name="plateNo")
+
+	@Column(name = "plateNo")
 	private String plateNo;
-	
-	@Column(name="make")
+
+	@Column(name = "make")
 	private String make;
-	
-	@Column(name="driver")
+
+	@Column(name = "driver")
 	private String driver;
-	
-	@Column(name="contactNo")
+
+	@Column(name = "contactNo")
 	private String contactNo;
-	
-	@Column(name="rentPerDay")
+
+	@Column(name = "rentPerDay")
 	private double rentPerDay;
-	
-	@Column(name="type")
+
+	@Column(name = "type")
 	private String type;
-	
-	@Column(name="seatCount")
+
+	@Column(name = "seatCount")
 	private int seatCount;
-	
-	@Column(name="airConditioning")
+
+	@Column(name = "airConditioning")
 	private boolean airConditioning;
-	
-	@Column(name="starting")
-	private String starting;
-	
-	@Column(name="diskbreak")
+
+	@Column(name = "start")
+	private String start;
+
+	@Column(name = "diskbreak")
 	private boolean diskbreak;
-	
+
 	public Long getVehicleId() {
 		return vehicleId;
 	}
@@ -119,12 +119,12 @@ public class Vehicle {
 		this.airConditioning = airConditioning;
 	}
 
-	public String getStarting() {
-		return starting;
+	public String getStart() {
+		return start;
 	}
 
-	public void setStarting(String starting) {
-		this.starting = starting;
+	public void setStart(String start) {
+		this.start = start;
 	}
 
 	public boolean isDiskbreak() {
@@ -135,12 +135,4 @@ public class Vehicle {
 		this.diskbreak = diskbreak;
 	}
 
-	@Override
-	public String toString() {
-		return "Vehicle [vehicleId=" + vehicleId + ", plateNo=" + plateNo + ", make=" + make + ", driver=" + driver
-				+ ", contactNo=" + contactNo + ", rentPerDay=" + rentPerDay + ", type=" + type + ", seatCount="
-				+ seatCount + ", airConditioning=" + airConditioning + ", starting=" + starting + ", diskbreak="
-				+ diskbreak + "]";
-	}	
-	
 }

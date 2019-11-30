@@ -19,14 +19,14 @@ public class VehicleServiceImpl implements VehicleService {
 
 	@Override
 	public ArrayList<Vehicle> getAllVehicles() {
-		ArrayList<Vehicle> a =  (ArrayList<Vehicle>) vehicleRepository.findAllByOrderByMake();
-		return a;
+		return (ArrayList<Vehicle>) vehicleRepository.findAllByOrderByMake();
 	}
 
 	@Override
 	public Vehicle createNewVehicle(Vehicle vehicle) {
-		if(vehicleRepository.count() <= 50)
-			return vehicleRepository.save(vehicle);
+		if(vehicleRepository.count() <= 50) {
+			System.out.println(vehicle);
+			return vehicleRepository.save(vehicle);}
 		return null;
 	}
 

@@ -2,7 +2,7 @@ package com.vrs.vrsrest.model;
 
 public class Motorbike extends Vehicle {
 	
-	private String starting; //kick, electric
+	private String start; //kick, electric
 	private boolean diskBreak;
 	
 	public Motorbike() {	
@@ -11,15 +11,15 @@ public class Motorbike extends Vehicle {
 	public Motorbike(String plateNo, String make, String driver, String contactNo, double rentPerDay, String starting,
 			boolean diskBreak) {
 		super(plateNo, make, driver, contactNo, rentPerDay);
-		this.starting = starting;
+		this.start = starting;
 		this.diskBreak = diskBreak;
 	}
 	
-	public String getStarting() {
-		return starting;
+	public String getStart() {
+		return start;
 	}
-	public void setStarting(String starting) {
-		this.starting = starting;
+	public void setStart(String start) {
+		this.start = start;
 	}
 	public boolean isDiskBreak() {
 		return diskBreak;
