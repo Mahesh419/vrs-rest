@@ -1,17 +1,23 @@
 package com.vrs.vrsrest.entity;
 
-import javax.annotation.Generated;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "vehicle")
+@Table(name="vehicle")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type", 
+  discriminatorType = DiscriminatorType.STRING)
 public class Vehicle {
-
+	
 	@Id
 	@Column(name = "vehicleId")
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,21 +37,6 @@ public class Vehicle {
 
 	@Column(name = "rentPerDay")
 	private double rentPerDay;
-
-	@Column(name = "type")
-	private String type;
-
-	@Column(name = "seatCount")
-	private int seatCount;
-
-	@Column(name = "airConditioning")
-	private boolean airConditioning;
-
-	@Column(name = "start")
-	private String start;
-
-	@Column(name = "diskbreak")
-	private boolean diskbreak;
 
 	public Long getVehicleId() {
 		return vehicleId;
@@ -94,45 +85,6 @@ public class Vehicle {
 	public void setRentPerDay(double rentPerDay) {
 		this.rentPerDay = rentPerDay;
 	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public int getSeatCount() {
-		return seatCount;
-	}
-
-	public void setSeatCount(int seatCount) {
-		this.seatCount = seatCount;
-	}
-
-	public boolean isAirConditioning() {
-		return airConditioning;
-	}
-
-	public void setAirConditioning(boolean airConditioning) {
-		this.airConditioning = airConditioning;
-	}
-
-	public String getStart() {
-		return start;
-	}
-
-	public void setStart(String start) {
-		this.start = start;
-	}
-
-	public boolean isDiskbreak() {
-		return diskbreak;
-	}
-
-	public void setDiskbreak(boolean diskbreak) {
-		this.diskbreak = diskbreak;
-	}
-
+	
+	
 }

@@ -1,6 +1,6 @@
 package com.vrs.vrsrest.model;
 
-import com.vrs.vrsrest.entity.Vehicle;;
+import com.vrs.vrsrest.entity.Vehicle;
 
 public class DeletedVehicle {
 	
