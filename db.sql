@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `vehicle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vehicle` (
-  `vehicleId` bigint(20) NOT NULL,
+  `vehicleId` bigint(20) NOT NULL AUTO_INCREMENT,
   `plateNo` varchar(45) NOT NULL,
   `make` varchar(50) NOT NULL,
   `driver` varchar(60) NOT NULL,
@@ -58,10 +58,10 @@ CREATE TABLE `vehicle` (
   `type` varchar(10) NOT NULL,
   `seatCount` int(11) DEFAULT NULL,
   `airConditioning` tinyint(4) DEFAULT NULL,
-  `starting` varchar(45) DEFAULT NULL,
+  `start` varchar(20) DEFAULT NULL,
   `diskbreak` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23534652 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (2342342,'ASD-1233','Toyota','wrtrtre','43534534',400,'Car',4,1,NULL,0),(23534645,'AWS-1234','Awert','ghgfhfg','46456546',200,'Car',2,1,NULL,0);
+INSERT INTO `vehicle` VALUES (2342342,'ASD-1233','Toyota','wrtrtre','43534534',400,'Car',NULL,NULL,NULL,NULL),(23534645,'AWS-1234','Awert','ghgfhfg','46456546',200,'Car',NULL,NULL,NULL,NULL),(23534646,'ASD-1234','Honda','sfsdf','1234567890',400,'Car',NULL,NULL,NULL,NULL),(23534647,'ASD-1234','Honda','sfsdf','1234567890',400,'Vehicle',NULL,NULL,NULL,NULL),(23534648,'ASD-1234','Honda','sfsdf','1234567890',400,'Vehicle',NULL,NULL,NULL,NULL),(23534649,'ASD-1234','Honda','sfsdf','1234567890',400,'Car',4,1,NULL,NULL);
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -83,4 +83,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-30  6:52:51
+-- Dump completed on 2019-11-30  9:38:12
