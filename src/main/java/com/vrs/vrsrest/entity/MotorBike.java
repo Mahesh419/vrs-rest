@@ -17,7 +17,7 @@ public class MotorBike extends Vehicle {
 	private String start;
 
 	@Column(name = "diskbreak")
-	private boolean diskbreak;
+	private Boolean diskbreak;
 
 	public String getStart() {
 		return start;
@@ -27,11 +27,11 @@ public class MotorBike extends Vehicle {
 		this.start = start;
 	}
 
-	public boolean isDiskbreak() {
+	public Boolean isDiskbreak() {
 		return diskbreak;
 	}
 
-	public void setDiskbreak(boolean diskbreak) {
+	public void setDiskbreak(Boolean diskbreak) {
 		this.diskbreak = diskbreak;
 	}
 	

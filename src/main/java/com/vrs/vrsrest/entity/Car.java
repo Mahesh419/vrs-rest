@@ -9,28 +9,32 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
 @Entity
 @DiscriminatorValue("Car")
 public class Car extends Vehicle {
 	@Column(name = "seatCount")
-	private int seatCount;
+	private Integer seatCount;
 
 	@Column(name = "airConditioning")
-	private boolean airConditioning;
+	private Boolean airConditioning;
 
-	public int getSeatCount() {
+	public Integer getSeatCount() {
 		return seatCount;
 	}
 
-	public void setSeatCount(int seatCount) {
+	public void setSeatCount(Integer seatCount) {
 		this.seatCount = seatCount;
 	}
 
-	public boolean isAirConditioning() {
+	public Boolean isAirConditioning() {
 		return airConditioning;
 	}
 
-	public void setAirConditioning(boolean airConditioning) {
+	public void setAirConditioning(Boolean airConditioning) {
 		this.airConditioning = airConditioning;
 	}
 	
