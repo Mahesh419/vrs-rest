@@ -15,7 +15,6 @@ import com.vrs.vrsrest.entity.Car;
 import com.vrs.vrsrest.entity.MotorBike;
 import com.vrs.vrsrest.entity.Vehicle;
 import com.vrs.vrsrest.model.DeletedVehicle;
-import com.vrs.vrsrest.service.CarService;
 import com.vrs.vrsrest.service.VehicleService;
 
 @Controller

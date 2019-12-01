@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +24,10 @@ public class Schedule {
 	
 	@Column(name="dropOffDate")
 	private LocalDate dropOffDate;
+	
+	@Column(name = "vehicleId")
+    @JoinColumn(name ="fk_schedule")
+    private Long vehicleId;
 
 	public Long getScheduleId() {
 		return scheduleId;
@@ -46,5 +51,13 @@ public class Schedule {
 
 	public void setDropOffDate(LocalDate dropOffDate) {
 		this.dropOffDate = dropOffDate;
+	}
+
+	public Long getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(Long vehicleId) {
+		this.vehicleId = vehicleId;
 	}	
 }

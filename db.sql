@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `westminister_vehicle_management_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `westminister_vehicle_management_db`;
 -- MySQL dump 10.13  Distrib 5.7.28, for Linux (x86_64)
 --
 -- Host: localhost    Database: westminister_vehicle_management_db
@@ -25,11 +23,14 @@ DROP TABLE IF EXISTS `schedule`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `schedule` (
-  `scheduleId` bigint(20) NOT NULL,
+  `scheduleId` bigint(20) NOT NULL AUTO_INCREMENT,
   `pickUpDate` date NOT NULL,
   `dropOffDate` date NOT NULL,
-  PRIMARY KEY (`scheduleId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `vehicleId` bigint(20) NOT NULL,
+  PRIMARY KEY (`scheduleId`),
+  KEY `fk_schedule_idx` (`vehicleId`),
+  CONSTRAINT `fk_schedule` FOREIGN KEY (`vehicleId`) REFERENCES `vehicle` (`vehicleId`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +39,7 @@ CREATE TABLE `schedule` (
 
 LOCK TABLES `schedule` WRITE;
 /*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
+INSERT INTO `schedule` VALUES (3,'2019-12-23','2019-12-25',23534653);
 /*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,13 +57,13 @@ CREATE TABLE `vehicle` (
   `driver` varchar(60) NOT NULL,
   `contactNo` varchar(10) NOT NULL,
   `rentPerDay` decimal(10,0) NOT NULL,
-  `type` varchar(10) NOT NULL,
   `seatCount` int(11) DEFAULT NULL,
   `airConditioning` tinyint(4) DEFAULT NULL,
   `start` varchar(20) DEFAULT NULL,
   `diskbreak` tinyint(4) DEFAULT NULL,
+  `type` varchar(45) NOT NULL,
   PRIMARY KEY (`vehicleId`)
-) ENGINE=InnoDB AUTO_INCREMENT=23534652 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23534654 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +72,7 @@ CREATE TABLE `vehicle` (
 
 LOCK TABLES `vehicle` WRITE;
 /*!40000 ALTER TABLE `vehicle` DISABLE KEYS */;
-INSERT INTO `vehicle` VALUES (2342342,'ASD-1233','Toyota','wrtrtre','43534534',400,'MotorBike',NULL,NULL,'Electric',1),(23534645,'AWS-1234','Awert','ghgfhfg','46456546',200,'Car',2,1,NULL,NULL),(23534646,'ASD-1234','Honda','sfsdf','1234567890',400,'MotorBike',NULL,NULL,'Kick',0),(23534649,'ASD-1234','Honda','sfsdf','1234567890',400,'Car',4,1,NULL,NULL);
+INSERT INTO `vehicle` VALUES (2342342,'ASD-1233','Toyota','wrtrtre','43534534',400,NULL,NULL,'Electric',1,'MotorBike'),(23534646,'ASD-1234','Honda','sfsdf','1234567890',400,NULL,NULL,'Kick',0,'MotorBike'),(23534649,'ASD-1234','Honda','sfsdf','1234567890',400,4,1,NULL,NULL,'Car'),(23534652,'AWS-1234','Awert','ghgfhfg','46456546',200,NULL,NULL,NULL,NULL,'Vehicle'),(23534653,'AWS-1234','Awert','ghgfhfg','46456546',200,2,1,NULL,NULL,'Car');
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -83,4 +85,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-30  9:51:52
+-- Dump completed on 2019-12-01 22:54:21
